@@ -1,6 +1,30 @@
-package in.strikes.practicalSpringSecurityDemo.entity;
+// package in.strikes.practicalSpringSecurityDemo.entity;
 
-import org.hibernate.annotations.Collate;
+// import jakarta.persistence.Column;
+// import jakarta.persistence.Entity;
+// import jakarta.persistence.GeneratedValue;
+// import jakarta.persistence.GenerationType;
+// import jakarta.persistence.Id;
+// import lombok.Getter;
+// import lombok.NoArgsConstructor;
+// import lombok.Setter;
+
+// @Entity 
+// @Getter 
+// @Setter 
+// @NoArgsConstructor 
+// public class Role {
+//     @Id 
+//     @GeneratedValue (strategy = GenerationType.IDENTITY)
+//     private Long id;
+
+//     @Column (nullable = false, unique = true)
+//     private String name;
+    
+// }
+
+
+package in.strikes.practicalSpringSecurityDemo.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,16 +35,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity 
-@Getter 
-@Setter 
-@NoArgsConstructor 
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Role {
-    @Id 
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String name;
-    
 }
+

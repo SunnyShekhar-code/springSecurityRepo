@@ -17,10 +17,11 @@ import in.strikes.practicalSpringSecurityDemo.repository.UserRepository;
 public class AuthService {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
-    private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder() ;
-    public AuthService(UserRepository userRepository, RoleRepository roleRepository){
+    private PasswordEncoder passwordEncoder ;
+    public AuthService(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder){
         this.userRepository=userRepository;
         this.roleRepository=roleRepository;
+        this.passwordEncoder=passwordEncoder;
     }
 
     public UserResponseDto register(UserRequestDto userreq){

@@ -1,6 +1,7 @@
 package in.strikes.practicalSpringSecurityDemo.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.csrf.CsrfToken;
@@ -15,7 +16,7 @@ import in.strikes.practicalSpringSecurityDemo.dto.UserResponseDto;
 import in.strikes.practicalSpringSecurityDemo.service.AuthService;
 
 @RestController 
-@RequestMapping ("/api")
+@RequestMapping ("/api/users")
 public class UserController {
     private AuthService authService;
 
@@ -26,16 +27,12 @@ public class UserController {
     PasswordEncoder passwordEncoder= new BCryptPasswordEncoder();
 
     @GetMapping ("/hello")
-    public ResponseEntity<String> hello(){
-        return ResponseEntity.ok("hello");
+    public ResponseEntity<String> sayHello(Authentication authentication){
+        return ResponseEntity.ok("hello, you are logged in as "+ authentication.getName());
 
     }
 
-    @GetMapping("/token")
-    public CsrfToken getToken(CsrfToken token){
-        return  token;
-    }
-
+    
     @PostMapping("/register")
     public ResponseEntity<UserResponseDto> register(@RequestBody  UserRequestDto user){
 
